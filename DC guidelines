@@ -1,0 +1,13 @@
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/windows_integration_guide/sssd-ad
+
+Requirements and guidelines for AD authentication.
+1.	LDAP is provided by Microsoft Windows 2019 Active Directory
+2.	Radius functionality will be provided by Microsoft Windows 2019 Network Policy Server (NPS) Role.
+3.	Vendor to share the LDAP schema which cover all user/group properties like OU/user/group/home/UID/GID etc.
+4.	LDAP(not LDPAS) protocol is preferred due to certificate enrolment/renewal challenge in Linux when using LDAPS
+5.	Anonymous bind is not recommended and should be avoided.
+6.	Vendor to share details on sudo user and sudo commands handling. If this need to be handle from AD, then the schema should include those items.
+7.	Password policy should be handled by Active directory.
+8.	Use SSSD package for AD authentication of Linux node, wherever possible
+9.	Active directory LDAP authentication need client to be configured with DNS query from AD DNS server. If the nodes are configured with different DNS server, (the configured)DNS server need to be configured to forward queries targeting the domain to AD DNS servers.
+
